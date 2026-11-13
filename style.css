@@ -1,0 +1,806 @@
+
+/* Diseño general de la página */
+body {
+    background-color: #e8f1f7;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #222222;
+}
+
+/* Portada */
+header {
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+header p {
+    margin: 6px 0;
+}
+
+/* Menú de navegación */
+nav {
+    background-color: steelblue;
+    text-align: center;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    display: inline-block;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Secciones del contenido */
+section {
+    background-color: white;
+    padding: 25px;
+    margin: 20px 15px;
+    border-radius: 10px;
+}
+
+section h2 {
+    color: darkblue;
+}
+
+/* Enlaces de los temas */
+#temas a {
+    color: darkblue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#temas a:hover {
+    color: steelblue;
+    text-decoration: underline;
+}
+
+/* Organizar los temas en dos columnas */
+#temas ul {
+    columns: 2;
+    column-gap: 40px;
+}
+
+#temas li {
+    margin-bottom: 10px;
+    break-inside: avoid;
+}
+
+/* Diseño de las cuatro tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+th {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+tr:last-child td {
+    border-bottom: 1px solid black;
+}
+
+/* Referencias bibliográficas APA 7 */
+#referencias p {
+    margin: 0 0 12px 0;
+    padding-left: 1.27cm;
+    text-indent: -1.27cm;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+/* Adaptar el diseño a pantallas pequeñas */
+@media (max-width: 700px) {
+
+    #temas ul {
+        columns: 1;
+    }
+
+    section {
+        padding: 18px;
+        margin: 12px 10px;
+    }
+
+    nav a {
+        margin: 4px 8px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 13px;
+    }
+}
+
+
+/* Imágenes de los temas */
+.imagen-tema {
+    text-align: center;
+    margin: 25px auto;
+}
+
+.imagen-tema img {
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.imagen-tema figcaption {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #555555;
+}
+
+
+#procesos .imagen-tema img {
+    width: 850px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tamaño de la imagen de servidores */
+#servidores .imagen-tema img {
+    width: 1000px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Diseño del cuestionario */
+#cuestionario {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+#pregunta-quiz {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.opcion-quiz {
+    display: block;
+    width: 100%;
+    max-width: 550px;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #e8f2f9;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.opcion-quiz:hover:not(:disabled) {
+    background-color: #c8e3f5;
+}
+
+.opcion-quiz:disabled {
+    cursor: default;
+}
+
+#mensaje-quiz {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#siguiente-quiz {
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#siguiente-quiz[hidden] {
+    display: none;
+}
+
+
+/* Botón para volver al inicio */
+#volver-arriba {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: darkblue;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+#volver-arriba:hover {
+    background-color: steelblue;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Botón para volver al inicio */
+#volver-arriba {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: darkblue;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+#volver-arriba:hover {
+    background-color: steelblue;
+}
+
+
+/* Mostrar solamente la sección seleccionada */
+body > section {
+    display: none;
+}
+
+body > section:target {
+    display: block;
+}
+
+
+/* Presentación de la Figura 1 */
+#historia .imagen-tema {
+    max-width: 600px;
+    margin: 25px auto;
+    text-align: left;
+}
+
+#historia .imagen-tema img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#historia .imagen-tema figcaption {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+#historia .nota-figura {
+    text-align: left;
+    font-size: 13px;
+    color: #555555;
+    margin-top: 10px;
+}
+
+
+/* Presentación de la Figura 2 */
+#hardware-software .imagen-tema {
+    max-width: 600px;
+    margin: 25px auto;
+    text-align: left;
+}
+
+#hardware-software .imagen-tema img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#hardware-software .imagen-tema figcaption {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+#hardware-software .nota-figura {
+    text-align: left;
+    font-size: 13px;
+    color: #555555;
+    margin-top: 10px;
+}
+
+/* Referencias bibliográficas APA 7 */
+#referencias p {
+    padding-left: 1.27cm;
+    text-indent: -1.27cm;
+    line-height: 2;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+/* Tarjetas interactivas */
+.tarjeta-interactiva {
+    background-color: #f0f7ff;
+    border: 1px solid #a9c8e8;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 12px 0;
+}
+
+.tarjeta-interactiva summary {
+    color: darkblue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tarjeta-interactiva summary:hover {
+    color: steelblue;
+}
+
+.tarjeta-interactiva p {
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.tarjeta-interactiva[open] {
+    background-color: #e4f1ff;
+}
+
+
+/* CAMPUS VIRTUAL */
+
+#bienvenida-inicio {
+    display: none;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Mostrar el campus al entrar a Inicio */
+body:has(#inicio:target) > #bienvenida-inicio,
+body:not(:has(:target)) > #bienvenida-inicio {
+    display: block;
+}
+
+.campus-contenedor {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+/* Menú lateral */
+.campus-lateral {
+    background: white;
+    border: 1px solid #dce5ef;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.campus-lateral h3 {
+    color: #173b70;
+    margin-top: 0;
+}
+
+.campus-lateral p {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.campus-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.campus-menu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #334e68;
+    border-radius: 7px;
+}
+
+.campus-menu a:hover {
+    background: #eaf3ff;
+    color: #173b70;
+}
+
+/* Bienvenida */
+.campus-principal {
+    min-width: 0;
+}
+
+.campus-bienvenida {
+    background: linear-gradient(
+        135deg, #ffffff, #eaf3ff
+    );
+    border: 1px solid #dce5ef;
+    border-radius: 12px;
+    padding: 35px;
+}
+
+.campus-bienvenida span {
+    color: #3273aa;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.campus-bienvenida h2 {
+    color: #173b70;
+    font-size: 30px;
+}
+
+.campus-bienvenida p {
+    color: #526379;
+    line-height: 1.8;
+}
+
+/* Botón */
+.campus-boton {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 22px;
+    background: #173b70;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.campus-boton:hover {
+    background: #3273aa;
+}
+
+/* Tarjetas de navegación */
+.campus-principal > h3 {
+    color: #173b70;
+    margin: 30px 0 18px;
+}
+
+.campus-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.campus-tarjeta {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #dce5ef;
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.campus-tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px #00000015;
+}
+
+.campus-tarjeta span {
+    color: #3273aa;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.campus-tarjeta h4 {
+    color: #173b70;
+    margin: 15px 0 8px;
+}
+
+.campus-tarjeta p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 14px;
+    flex: 1;
+}
+
+.campus-tarjeta strong {
+    color: #3273aa;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 850px) {
+    .campus-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .campus-tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .campus-bienvenida {
+        padding: 25px;
+    }
+}
+
+/* Encabezado académico más compacto */
+
+header#inicio {
+    padding: 20px 15px;
+}
+
+header#inicio h1 {
+    margin: 5px 0 15px;
+}
+
+header#inicio p {
+    margin: 7px 0;
+}
+
+
+/* ======================================
+   MEJORAS FINALES DEL CAMPUS VIRTUAL
+   ====================================== */
+
+/* 1. Ocultar Volver al inicio cuando estamos en Inicio */
+
+body:has(header#inicio:target) #boton-volver-inicio,
+body:not(:has(:target)) #boton-volver-inicio {
+    display: none;
+}
+
+
+/* 2. Resaltar Inicio en el menú lateral */
+
+.campus-menu a[href="#inicio"] {
+    background-color: #e8f1fc;
+    color: #173b70;
+    font-weight: bold;
+    border-left: 3px solid #3273aa;
+}
+
+
+/* Resaltar la sección activa del menú superior */
+
+body:has(header#inicio:target) > nav a[href="#inicio"],
+body:not(:has(:target)) > nav a[href="#inicio"],
+body:has(#introduccion:target) > nav a[href="#introduccion"],
+body:has(#temas:target) > nav a[href="#temas"],
+body:has(#cuestionario:target) > nav a[href="#cuestionario"],
+body:has(#referencias:target) > nav a[href="#referencias"] {
+    background-color: #326b9e;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+
+/* 3. Menú lateral más compacto */
+
+.campus-lateral {
+    padding: 20px 18px;
+}
+
+.campus-lateral h3 {
+    margin-top: 0;
+    margin-bottom: 7px;
+}
+
+.campus-lateral p {
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+.campus-menu {
+    gap: 3px;
+    margin-top: 15px;
+}
+
+.campus-menu a {
+    padding: 10px 12px;
+    font-size: 14px;
+    transition: background-color 0.2s,
+                color 0.2s;
+}
+
+.campus-menu a:hover {
+    background-color: #dbeaff;
+    color: #173b70;
+}
+
+
+/* Mejorar navegación con teclado */
+
+.campus-menu a:focus-visible,
+.campus-tarjeta:focus-visible,
+.campus-boton:focus-visible {
+    outline: 3px solid #3273aa;
+    outline-offset: 3px;
+}
+
+
+/* OCULTAR LA PORTADA EN LOS TEMAS */
+
+/* Cuando seleccionamos una sección,
+   ocultamos el encabezado universitario */
+
+body:has(section:target) > header#inicio {
+    display: none;
+}
+
+/* Cuando seleccionamos un tema,
+   ocultamos las demás secciones */
+
+body:has(section:target) > section:not(:target) {
+    display: none;
+}
+
+/* Mejorar la lectura de la introducción */
+
+#introduccion p {
+    max-width: 1050px;
+    line-height: 1.8;
+}
+
+
+/* Ocultar el botón cuando estamos en Inicio */
+
+body:has(header#inicio:target) #boton-volver-inicio,
+body:not(:has(:target)) #boton-volver-inicio {
+    display: none !important;
+}
+
+/* BOTON VOLVER AL INICIO */
+
+#boton-volver-inicio {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    background-color: darkblue;
+    color: white;
+
+    padding: 14px 20px;
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 4px 12px #00000020;
+    z-index: 1000;
+
+    transition: background-color 0.2s;
+}
+
+/* Efecto al pasar el cursor */
+
+#boton-volver-inicio:hover {
+    background-color: #3273aa;
+}
+
+/* Ocultar boton cuando estamos en Inicio */
+
+body:has(header#inicio:target) #boton-volver-inicio,
+body:not(:has(:target)) #boton-volver-inicio {
+    display: none;
+}
+
+/* ===== DIAGRAMA INTERACTIVO: EVOLUCIÓN ===== */
+.timeline-evolucion {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.etapa-evolucion {
+    background-color: #f8fbff;
+    border: 2px solid #c9d9ea;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.etapa-evolucion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.etapa-evolucion summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 22px;
+    background-color: #eaf3fb;
+}
+
+.etapa-evolucion summary::-webkit-details-marker {
+    display: none;
+}
+
+.numero-etapa {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 50%;
+    background-color: #173b70;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.etapa-evolucion summary strong {
+    display: block;
+    color: #0d2c6c;
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.etapa-evolucion summary p {
+    margin: 0;
+    color: #4b5d73;
+    font-size: 15px;
+}
+
+.contenido-etapa {
+    padding: 20px 22px 22px 22px;
+    background-color: #ffffff;
+}
+
+.contenido-etapa p {
+    margin: 0;
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.etapa-evolucion[open] {
+    border-color: #7ea8d1;
+}
+
+.etapa-evolucion[open] summary {
+    background-color: #dbe9f7;
+}
+
+.nota-evolucion {
+    margin-top: 18px;
+    font-size: 15px;
+    color: #444;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .etapa-evolucion summary {
+        align-items: flex-start;
+    }
+
+    .numero-etapa {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 18px;
+    }
+
+    .etapa-evolucion summary strong {
+        font-size: 18px;
+    }
+}
